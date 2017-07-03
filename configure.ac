@@ -2827,6 +2827,7 @@ AC_CONFIG_FILES(
   plugins/easy_codec/Makefile
   plugins/ethercat/Makefile
   plugins/gryphon/Makefile
+  plugins/foo/Makefile
   plugins/irda/Makefile
   plugins/m2m/Makefile
   plugins/mate/Makefile

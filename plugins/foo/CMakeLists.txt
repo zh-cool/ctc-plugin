@@ -1,5 +1,4 @@
-# Makefile.am
-# Automake file for Wireshark plugins
+# CMakeListsCustom.txt
 #
 # Wireshark - Network traffic analyzer
 # By Gerald Combs <gerald@wireshark.org>
@@ -18,36 +17,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+# Add a list of your custom plugins SRC dir here including the path
+#
+include(WiresharkPlugin)
+ 
+# Plugin name and version info (major minor micro extra)
+set_module_info(foo 0 0 4 0)
 
--include Custom.make
+set(CUSTOM_PLUGIN_SRC_DIR
+	plugins/foo
+)
 
-SUBDIRS = $(_CUSTOM_SUBDIRS_) \
-	docsis \
-	easy_codec \
-	ethercat \
-	gryphon \
-	foo \
-	irda \
-	m2m \
-	mate \
-	opcua \
-	profinet \
-	stats_tree \
-	unistim \
-	wimax \
-	wimaxasncp \
-	wimaxmacphy
-
-EXTRA_DIST = \
-	$(_CUSTOM_EXTRA_DIST_) \
-	Custom.make.example \
-	Custom.m4.example
-
-MAINTAINERCLEANFILES = \
-	Makefile.in
-
-checkapi:
-	for i in $(SUBDIRS); do \
-		(cd "$$i"; $(MAKE) checkapi); \
-	done
-
+#
+# Editor modelines  -  http://www.wireshark.org/tools/modelines.html
+#
+# Local variables:
+# c-basic-offset: 8
+# tab-width: 8
+# indent-tabs-mode: t
+# End:
+#
+# vi: set shiftwidth=8 tabstop=8 noexpandtab:
+# :indentSize=8:tabSize=8:noTabs=false:
+#
